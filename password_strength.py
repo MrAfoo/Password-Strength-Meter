@@ -1,10 +1,10 @@
 import streamlit as st
-import re
+import re # Regular expression for checking password conditions
 
 # Function to check password strength
 def check_password_strength(password):
-    score = 0
-    feedback = []
+    score = 0 # With respect to score the password strength will be determined
+    feedback = [] # It stores the warnings and errors
 
     # Check length
     if len(password) >= 8:
@@ -40,11 +40,11 @@ def check_password_strength(password):
 
     return strength, feedback
 
-# Streamlit UI
+
 st.title("🔐 Password Strength Meter")
 st.write("Enter a password to check its strength and get improvement suggestions.")
 
-# Input field
+# Takes user input for password
 password = st.text_input("Enter your password", type="password")
 
 # Check password when input is given
@@ -57,5 +57,5 @@ if password:
     # Display feedback if password is weak or moderate
     if feedback:
         st.warning("Suggestions to improve your password:")
-        for tip in feedback:
+        for tip in feedback: # loop to display all the warnings and errors
             st.write(tip)
